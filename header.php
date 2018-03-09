@@ -24,29 +24,30 @@
 	
 </head>
 
-<body onLoad="setInterval('cron()',5000);">
+<!-- <body onLoad="setInterval('cron()',5000);"> -->
+<body onLoad=cron();>
 <!-- <body> -->
 <script src="js/utils.js"></script>
 <script src="js/sd01.js"></script>
-<script src="js/sp14.js"></script>
+<!-- <script src="js/sp14.js"></script>
 <script src="js/sn03.js"></script>
 <script src="js/tk2.js"></script>
 <script src="js/tk3.js"></script>
 <script src="js/tk4.js"></script>
 <script src="js/sp06.js"></script>
-<script src="js/tki.js"></script>
+<script src="js/tki.js"></script> -->
 
 
 <script>
 function cron(){
         loadDoc_sd01();
-        loadDoc_sp14();
-        loadDoc_sn03();
-        loadDoc_tk2();
-        loadDoc_tk3();
-        loadDoc_tk4();
-        loadDoc_sp06();
-        loadDoc_tki();
+        // loadDoc_sp14();
+        // loadDoc_sn03();
+        // loadDoc_tk2();
+        // loadDoc_tk3();
+        // loadDoc_tk4();
+        // loadDoc_sp06();
+        // loadDoc_tki();
     }
 
 </script>

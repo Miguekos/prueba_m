@@ -1,8 +1,10 @@
 <?php
 
 
-$valor = $_GET['valor'];
-$url = 'http://192.168.0.125:61208/api/2/'.$valor;
+$item = $_GET['item'];
+$param = $_GET['param'];
+// $url = 'http://192.168.4.70:9200/sd01/mem/total'.$valor;
+$url = 'http://192.168.4.70:9200/sd01/'.$item.'/'.$param.'/_source';
 
 $cURL = curl_init();
 

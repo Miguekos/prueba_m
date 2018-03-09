@@ -2,13 +2,13 @@
 
 function loadDoc_sd01() {
 
-    solicitud("conf/sd01.php?valor=mem", function(value) {
-        // console.log(Number(value.total/1024/1024).toFixed(0));
+    solicitud("conf/sd01.php?item=mem&param=percent", function(data) {
+        // console.log(Number(data.total/1024/1024).toFixed(0));
         document.getElementById('sd01_alert').setAttribute('data-background-color', 'blue');
         document.getElementById("sd01_nombre").innerHTML = "SD01";
-        document.getElementById("sd01_used").innerHTML = Number(value.used/1024/1024).toFixed(0) + " MB";
-        document.getElementById("sd01_total").innerHTML = Number(value.total/1024/1024).toFixed(0) + " MB";
-        document.getElementById("sd01_percent").innerHTML = value.percent + " %";
+        document.getElementById("sd01_used").innerHTML = Number(data.used/1024/1024).toFixed(0) + " MB";
+        document.getElementById("sd01_total").innerHTML = Number(data.total/1024/1024).toFixed(0) + " MB";
+        document.getElementById("sd01_percent").innerHTML = data.value + " %";
 
 
     }, function(error) {
@@ -17,13 +17,13 @@ function loadDoc_sd01() {
         console.log(error);
     })
     
-    solicitud("conf/sd01.php?valor=cpu", function(value) {
-        // console.log(Number(value.free/1024/1024).toFixed(0));
-        document.getElementById("sd01_cpu_load").innerHTML = value.total + " %";
-        if (value.total > 90) {
+    solicitud("conf/sd01.php?valor=cpu", function(data) {
+        // console.log(Number(data.free/1024/1024).toFixed(0));
+        document.getElementById("sd01_cpu_load").innerHTML = data.total + " %";
+        if (data.total > 90) {
             document.getElementById('sd01_cpu_load').setAttribute('data-background-color', 'red');
             
-        }else if(value.total > 50){
+        }else if(data.total > 50){
             document.getElementById('sd01_cpu_load').setAttribute('data-background-color', 'orange');
 
         }else{
@@ -34,9 +34,9 @@ function loadDoc_sd01() {
         console.log(error);
     })
 
-    solicitud("conf/sd01.php?valor=load", function(value) {
-        // console.log(Number(value.min1/1024/1024).toFixed(0));
-        document.getElementById("sd01_load_total").innerHTML = value.min1;
+    solicitud("conf/sd01.php?item=load&param=min1", function(data) {
+        // console.log(Number(data.min1/1024/1024).toFixed(0));
+        document.getElementById("sd01_load_total").innerHTML = data.total.value;
 
     }, function(error) {
         console.log(error);
