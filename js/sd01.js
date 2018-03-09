@@ -3,12 +3,13 @@
 function loadDoc_sd01() {
 
     solicitud("conf/sd01.php?item=mem&param=percent", function(data) {
+        document.getElementById("sd01_percent").innerHTML = data.value + " %";
         // console.log(Number(data.total/1024/1024).toFixed(0));
         document.getElementById('sd01_alert').setAttribute('data-background-color', 'blue');
         document.getElementById("sd01_nombre").innerHTML = "SD01";
         document.getElementById("sd01_used").innerHTML = Number(data.used/1024/1024).toFixed(0) + " MB";
         document.getElementById("sd01_total").innerHTML = Number(data.total/1024/1024).toFixed(0) + " MB";
-        document.getElementById("sd01_percent").innerHTML = data.value + " %";
+        
 
 
     }, function(error) {
